@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LC TV</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <div class="main">
+
+        <div class="title-bar">
+            <p id="time" class="time">2:41pm</p>
+            <h1>Information</h1>
+            <p id="date" class="date">10/23/23</p>
+        </div>
+
+        <div class="container">
+            <div class="block">
+                <div class="heading">
+                    <p>Schedule</p>
+                    <p id="time-remaining" class="center"></p>
+                    <span class="material-symbols-outlined">
+                        calendar_today
+                    </span>
+                </div>
+
+                <table>
+                    <tr id="schedule-row"></tr>
+                </table>
+
+                <div class="progress">
+                    <p id="percent-complete" class="percent-complete">50%</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="block">
+                <div class="heading">
+                    <p>Lunch Special</p>
+                    <span class="material-symbols-outlined">
+                        restaurant
+                    </span>
+                </div>
+                <p class="info">General Tso's Chicken</p>
+            </div>
+            <div class="block">
+                <div class="heading">
+                    <p>Weather</p>
+                    <span class="material-symbols-outlined">
+                        clear_day
+                    </span>
+                </div>
+                <p class="info">58°F</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="block">
+                <div class="heading">
+                    <p>Announcements</p>
+                    <span class="material-symbols-outlined">
+                        campaign
+                    </span>
+                </div>
+                <p class="info">Join MHS Hack Club!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

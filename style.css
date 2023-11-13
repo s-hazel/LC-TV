@@ -147,10 +147,8 @@ td:nth-child(6) {
     transition: width 0.5s;
 }
 
-.progress p {
-    color: white;
+.percent-complete {
     font-weight: 700;
-    margin-right: 5px;
 }
 
 .schedule-message {

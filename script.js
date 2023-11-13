@@ -7,17 +7,17 @@ schedule = [
 ]
 
 setDateAndTime = () => {
-    let date = new Date();
+    let date = new Date()
 
     var pageDate = document.getElementById("date")
     pageDate.textContent = date.toLocaleDateString()
 
-    const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     var heading = document.querySelector("h1")
     heading.textContent = weekday[date.getDay()] + "'s Information"
 
     var pageTime = document.getElementById("time")
-    pageTime.textContent = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    pageTime.textContent = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
 }
 
 setSchedule = () => {
@@ -43,63 +43,57 @@ setSchedule = () => {
 
 setProgress = () => {
     var r = document.querySelector(":root")
-    r.style.setProperty('--progress-bar', '0%');
+    r.style.setProperty('--progress-bar', '0%')
 
-    // Get the current date and time
-    let now = new Date();
-    console.log("Current time: " + now);
+    let now = new Date()
 
     // Set the start and end times
-    let startTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 8, 15);
-    let endTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 14, 41);
-    console.log("Start time: " + startTime);
-    console.log("End time: " + endTime);
+    let startTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 8, 15)
+    let endTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 14, 41)
 
     var percentComplete = document.getElementById("percent-complete")
 
     if (now >= startTime && now <= endTime) {
-        // Calculate the total duration in milliseconds
-        let duration = endTime - startTime;
-        console.log("Total duration: " + duration);
+        // Total duration in milliseconds
+        let duration = endTime - startTime
 
-        // Calculate the elapsed time in milliseconds
-        let elapsed = now - startTime;
-        console.log("Elapsed time: " + elapsed);
+        // Elapsed time in milliseconds
+        let elapsed = now - startTime
 
-        // Calculate the percentage of time elapsed
-        let percentage = (elapsed / duration) * 100;
-        console.log("Percentage: " + percentage);
+        // Percentage of time elapsed
+        let percentage = (elapsed / duration) * 100
 
         // Update the width of the progress bar
         r.style.setProperty('--progress-bar', percentage + "%")
         percentComplete.textContent = Math.floor(percentage) + "%"
-
-        // console.log("Progress bar width: " + progressBar.style.width);
     } else {
-        // If the current time is outside the range, set the progress bar to 0%
+        // When school is not in session, set progress bar width to 0%
         r.style.setProperty('--progress-bar', '0%')
-        console.log("Outside time range. Progress bar width: " + progressBar.style.width);
     }
 }
 
 function setTimeRemaining() {
-    let now = new Date();
+    let now = new Date()
 
-    let time241PM = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 14, 41);
+    let time1441 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 14, 41)
 
-    // Calculate the difference in milliseconds
-    let difference = time241PM - now;
+    // Difference in milliseconds
+    let difference = time1441 - now
 
     var timeRemaining = document.getElementById("time-remaining")
 
     if (difference > 0) {
-        let hours = Math.floor(difference / 1000 / 60 / 60);
-        difference -= hours * 1000 * 60 * 60;
-        let minutes = Math.floor(difference / 1000 / 60);
-        // difference -= minutes * 1000 * 60;
-        // let seconds = Math.floor(difference / 1000);
+        let hours = Math.floor(difference / 1000 / 60 / 60)
+        difference -= hours * 1000 * 60 * 60
+        let minutes = Math.floor(difference / 1000 / 60)
+
         timeRemaining.textContent = "Time Remaining: " + hours + "h " + minutes + "m"
     }
+}
+
+announce = (message) => {
+    box = document.getElementById("info")
+    box.textContent = message
 }
 
 updatePage = () => {
@@ -108,9 +102,9 @@ updatePage = () => {
     setTimeRemaining()
 }
 
-// Call the function every minute
-
+announce("Join MHS Hack Club!")
 setDateAndTime()
 setSchedule()
+
 updatePage()
-setInterval(updatePage, 1000);
+setInterval(updatePage, 1000)
